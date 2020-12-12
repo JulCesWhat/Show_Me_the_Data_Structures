@@ -21,10 +21,10 @@ class LRU_Cache(object):
             del self.lis[value.pos]
             self.lis.append(value)
             value.pos = len(self.lis) - 1
-            print(value.data)
+            # print(value.data)
             return value.data
         else:
-            print(-1)
+            # print(-1)
             return -1
 
     def set(self, key, value):
@@ -40,18 +40,27 @@ class LRU_Cache(object):
             self.lis.append(key)
             self.dic[key] = Cache_Item(value, len(self.lis) - 1)
 
-our_cache = LRU_Cache(5)
 
-our_cache.set(1, 1);
-our_cache.set(2, 2);
-our_cache.set(3, 3);
-our_cache.set(4, 4);
+if __name__ == "__main__":
+    our_cache = LRU_Cache(5)
 
-our_cache.get(1)  # returns 1
-our_cache.get(2)  # returns 2
-our_cache.get(9)  # returns -1 because 9 is not present in the cache
+    our_cache.set(1, 1);
+    our_cache.set(2, 2);
+    our_cache.set(3, 3);
+    our_cache.set(4, 4);
 
-our_cache.set(5, 5)
-our_cache.set(6, 6)
+    value_1 = our_cache.get(1)
+    print(value_1)
+    # returns 1
 
-our_cache.get(3)  # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+    value_2 = our_cache.get(2)
+    value_9 = our_cache.get(9)
+    print(value_9)
+    # returns -1 because 9 is not present in the cache
+
+    our_cache.set(5, 5)
+    our_cache.set(6, 6)
+
+    value_3 = our_cache.get(3)
+    print(value_3)
+    # returns -1 because the cache reached it's capacity and 3 was the least recently used entry

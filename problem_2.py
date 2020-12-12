@@ -23,6 +23,9 @@ def find_files(suffix, path):
        a list of paths
     """
 
+    if not os.path.isdir(path):
+        return []
+
     files = []
 
     current_files = os.listdir(path)
@@ -36,5 +39,15 @@ def find_files(suffix, path):
     return files
 
 
-test_result = find_files(".c", "./testdir")
-print(test_result)
+if __name__ == "__main__":
+    test_result_1 = find_files(".c", "./testdir")
+    print(test_result_1)
+    # ['./testdir/subdir3/subsubdir1/b.c', './testdir/t1.c', './testdir/subdir5/a.c', './testdir/subdir1/a.c']
+
+    test_result_2 = find_files(".doc", "./testdir")
+    print(test_result_2)
+    # []
+
+    test_result_3 = find_files(".c", "./testdir/t1.c")
+    print(test_result_3)
+    # []

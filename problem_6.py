@@ -96,21 +96,47 @@ for i in element_2:
     linked_list_2.append(i)
 
 print(union(linked_list_1, linked_list_2))
+# 3 -> 2 -> 4 -> 35 -> 6 -> 65 -> 21 -> 32 -> 9 -> 1 -> 11 ->
+
 print(intersection(linked_list_1, linked_list_2))
+# 6 -> 4 -> 21 ->
 
 # Test case 2
 
 linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
 
-element_1 = [3, 2, 4, 35, 6, 65, 6, 4, 3, 23]
-element_2 = [1, 7, 8, 9, 11, 21, 1]
+element_3 = [3, 2, 4, 35, 6, 65, 6, 4, 3, 23]
+element_4 = [1, 7, 8, 9, 11, 21, 1]
 
-for i in element_1:
+for i in element_3:
     linked_list_3.append(i)
 
-for i in element_2:
+for i in element_4:
     linked_list_4.append(i)
 
 print(union(linked_list_3, linked_list_4))
+# 3 -> 2 -> 4 -> 35 -> 6 -> 65 -> 23 -> 1 -> 7 -> 8 -> 9 -> 11 -> 21 ->
+
 print(intersection(linked_list_3, linked_list_4))
+#
+
+# Test case 3
+
+linked_list_5 = LinkedList()
+linked_list_6 = LinkedList()
+
+element_5 = [0]
+element_6 = [0]
+
+for i in element_5:
+    linked_list_5.append(i)
+
+for i in element_6:
+    linked_list_6.append(i)
+
+print(union(linked_list_5, linked_list_6))
+# 0 ->
+
+print(intersection(linked_list_5, linked_list_6))
+# 0 ->

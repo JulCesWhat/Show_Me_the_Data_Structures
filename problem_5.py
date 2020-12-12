@@ -56,7 +56,12 @@ if __name__ == "__main__":
 
     item_pos_1 = block_chain.get_block_at_position(1)
     print(item_pos_1.data)
+    # Second block
+
     item_pos_2 = block_chain.get_block_at_position(2)
     print(item_pos_2.data)
+    # Third block
+
     item_pos_0 = block_chain.get_block_at_position(0)
     print(item_pos_0.data)
+    # First block
