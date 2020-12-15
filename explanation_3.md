@@ -5,8 +5,11 @@ priority queue to keep track of the items in order of occurrence to create a tre
 to keep track of the letters that are repeated the most in the sentence so that I can find the encoding
 value for each letter and than to be able to decode the encoded value to its original value.
 
-* Worse find user time case complexity: O(5n) => 0(n^2)
-* Space complexity for tree: N/A
+* Worse `huffman_encoding` time case complexity: 0(2n + m + j) => 0(n)  Where n is the size of the data string and m is the size of the dictionary and
+                                                                            j is the size of the priority queque
+* Worse `huffman_decoding` time case complexity: 0(n)                   Where n is the size of the encoded data string
+* Worse `huffman_encoding` space case complexity: 0(n + m) => 0(n)      Where n is the size of the dictionary and m the size of the priority queue
+* Worse `huffman_decoding` space case complexity: N/A                   Not using an local data structure
 
 
 ## Required Tools

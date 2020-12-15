@@ -3,7 +3,7 @@
 There is no need for a data structure to solve this problem. I am using an array to keep track of the
 files that have been found. I am using recursion to solve this problem.
 
-* Worse `get` time case complexity: O(n^2)
+* Worse `get` time case complexity: O(n)
 * Space complexity: 0(n)        for the array solution
 
 

@@ -29,16 +29,17 @@ def is_user_in_group(user, group):
       group(class:Group): group to check user membership against
     """
 
-    if user in group.users:
-        return True
-    else:
-        if len(group.groups) is 0:
-            return False
-        else:
-            for inner_group in group.groups:
-                return is_user_in_group(user, inner_group)
+    # if user in group.users:
+    #     return True
+    # else:
+    #     if len(group.groups) is 0:
+    #         return False
+    #     else:
+    #         for inner_group in group.groups:
+    #             return is_user_in_group(user, inner_group)
 
-    return False
+    # return False
+    return user in group.users or any(is_user_in_group(user, sub_group) for sub_group in group.get_groups())
 
 
 parent = Group("parent")

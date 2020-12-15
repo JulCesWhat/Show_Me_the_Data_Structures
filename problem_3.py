@@ -15,6 +15,9 @@ class PriorityQueue(object):
         return len(self.queue)
 
     def dequeue(self):
+        if len(self.queue) < 1:
+            return ""
+
         min = 0
         for i in range(len(self.queue)):
             if self.queue[i].frequency < self.queue[min].frequency:
@@ -52,6 +55,9 @@ def transverse_tree(node, dic, bin_n):
 
 
 def huffman_encoding(data):
+    if len(data) < 1:
+        return None
+
     letters_dic = {}
 
     for letter in data:
@@ -93,6 +99,9 @@ def huffman_encoding(data):
 
 
 def huffman_decoding(data, tree):
+    if tree is None:
+        return ""
+
     tree_head = tree
     decoded_data = ""
     for item in data:

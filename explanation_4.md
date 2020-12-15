@@ -3,8 +3,8 @@
 I decided to use a class that contains an array of groups and another one for users. The solution does
 not require the usage of any data structure.
 
-* Worse sentence encoding time case complexity: O(5n) => 0(n)
-* Space complexity: 0(n)
+* Worse sentence encoding time case complexity: O(n)    where n is the amount of groups inside a group
+* Space complexity: N/A                                 since I am not using any data structure to hold data
 
 
 ## Required Tools
