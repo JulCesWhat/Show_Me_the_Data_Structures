@@ -1,6 +1,5 @@
-
-
 class Cache_Item(object):
+
     def __init__(self, data, pos):
         self.data = data
         self.pos = pos
@@ -18,10 +17,14 @@ class LRU_Cache(object):
         # Retrieve item from provided key. Return -1 if nonexistent.
         if key in self.dic:
             value = self.dic[key]
-            del self.lis[value.pos]
-            self.lis.append(value)
+            # del self.lis[value.pos]
+            self.lis.pop(value.pos)
+            for i in range(value.pos, len(self.lis)):
+                item = self.lis[i]
+                self.dic[item].pos -= 1
+            self.lis.append(key)
             value.pos = len(self.lis) - 1
-            # print(value.data)
+            self.dic[key] = value
             return value.data
         else:
             # print(-1)
@@ -38,7 +41,7 @@ class LRU_Cache(object):
             self.dic[key] = Cache_Item(value, len(self.lis) - 1)
         else:
             rem_key = self.lis[0]
-            del self.lis[0]
+            self.lis.pop(0)
             del self.dic[rem_key]
             self.lis.append(key)
             self.dic[key] = Cache_Item(value, len(self.lis) - 1)
@@ -66,7 +69,7 @@ if __name__ == "__main__":
 
     value_3 = our_cache.get(3)
     print(value_3)
-    # returns 3 because the cache reached it's capacity and 3 was the least recently used entry
+    # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
     our_cache_2 = LRU_Cache(1)
     our_cache_2.set(1, 1)
